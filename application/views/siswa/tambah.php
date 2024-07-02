@@ -10,17 +10,17 @@
                         <div class="form-group">
                             <label for="nama">Nama</label>
                             <input type="text" name="nama" class="form-control" id="nama">
-                            <small class="form-text text-danger"></small>
+                            <small class="form-text text-danger"><?= form_error('nama'); ?></small>
                         </div>
                         <div class="form-group">
                             <label for="nis">NIS</label>
                             <input type="number" name="nis" class="form-control" id="nis">
-                            <small class="form-text text-danger"></small>
+                            <small class="form-text text-danger"><?= form_error('nis'); ?></small>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" name="email" class="form-control" id="email">
-                            <small class="form-text text-danger"></small>
+                            <small class="form-text text-danger"><?= form_error('email'); ?></small>
                         </div>
                         <div class="form-group">
                             <label for="jurusan">Jurusan</label>
