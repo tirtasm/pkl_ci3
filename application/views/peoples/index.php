@@ -1,4 +1,4 @@
-<!-- <?php var_dump($peoples); ?> -->
+
 <div class="container">
     <h3 class="mt-3">List of People</h3>
 

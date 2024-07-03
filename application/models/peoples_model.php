@@ -2,12 +2,17 @@
 
 class Peoples_model extends CI_Model
 {
+    
     public function getAllPeoples()
     {
         return $this->db->get('peoples')->result_array();
     }
-    public function getPeople($limit, $start)
+    public function getPeople($limit, $start, $keyword = null)
     {
+        if ($keyword) {
+            $this->db->like('name', $keyword);
+            $this->db->or_like('email', $keyword);
+        }
         return $this->db->get('peoples', $limit, $start)->result_array();
 
     }
@@ -29,10 +34,16 @@ class Peoples_model extends CI_Model
         $this->db->where('id', $this->input->post('id'));
         $this->db->update('peoples', $data);
     }
-        public function hapusDataPeople($id)
-        {
-            // $this->db->where('id', $id);
-            $this->db->delete('peoples', ['id' => $id] );
-        }
+    public function hapusDataPeople($id)
+    {
+        // $this->db->where('id', $id);
+        $this->db->delete('peoples', ['id' => $id]);
+    }
+    public function cariDataPeople()
+    {
+        $keyword = $this->input->post('keyword', true);
+        $this->db->like('name', $keyword);
+        return $this->db->get('peoples')->result_array();
+    }
 
 }
